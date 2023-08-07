@@ -1,13 +1,16 @@
-import java.util.Scanner;
+import java.io.*;
 import java.util.StringTokenizer;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        int x = sc.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        String nxStr = br.readLine();
+        String[] nx = nxStr.split(" ");
+        int n = Integer.valueOf(nx[0]);
+        int x = Integer.valueOf(nx[1]);
 
-        String str = sc.next()+sc.nextLine();
+        String str = br.readLine();
 
         String result = "";
 
@@ -16,10 +19,13 @@ public class Main {
         while(stk.hasMoreTokens()) {
             Integer num = Integer.valueOf(stk.nextToken());
             if(num < x) {
-                result += num+" ";
+                bw.write(num+" ");
             }
         }
-        System.out.println(result);
+        bw.flush();
+
+        br.close();
+        bw.close();
 
     }
 }
