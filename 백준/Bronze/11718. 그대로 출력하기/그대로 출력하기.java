@@ -8,9 +8,8 @@ public class Main {
 
         while((tmp = br.readLine()) != null) {
             bw.write(tmp+"\n");
-            bw.flush();
         }
-
+        bw.flush();
         br.close();
         bw.close();
     }
