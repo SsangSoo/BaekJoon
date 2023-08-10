@@ -1,10 +1,18 @@
+import java.io.*;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int h = sc.nextInt();
-        int m = sc.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        String hmStr = br.readLine();
+
+        StringTokenizer stk = new StringTokenizer(hmStr);
+        int h = 0, m = 0;
+        while(stk.hasMoreTokens()) {
+            h = Integer.valueOf(stk.nextToken());
+            m = Integer.valueOf(stk.nextToken());
+        }
 
         // 분에서 45를 뺀다.
         m = m - 45;
@@ -13,11 +21,13 @@ public class Main {
             h--;
             m += 60;
         }
-
         // 시간이 음수라면, 24를 더해준다.
         if(h<0) h += 24;
 
-        System.out.println(h+" "+m);
+        bw.write(h+" "+m);
 
+        bw.flush();
+        bw.close();
+        br.close();
     }
 }
