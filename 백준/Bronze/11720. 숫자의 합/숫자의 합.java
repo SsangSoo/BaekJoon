@@ -13,9 +13,8 @@ public class Main {
         long sum = 0L;
 
         for (char ch : inputNum.toCharArray()) {
-            sum += ch;
+            sum += ch - '0';
         }
-        sum -= '0' * n;
 
         bw.write(String.valueOf(sum));
 
