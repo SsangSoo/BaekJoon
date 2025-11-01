@@ -1,19 +1,25 @@
-import java.util.Scanner;
+import java.io.*;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
-        int num = sc.nextInt();
-        String str = sc.next();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int result = 0;
+        int n = Integer.parseInt(br.readLine());
 
-        for(int i=0; i<str.length(); i++) {
-            result += Integer.valueOf(str.charAt(i)-'0');
+        String inputNum = br.readLine();
+
+        long sum = 0L;
+
+        for (char ch : inputNum.toCharArray()) {
+            sum += ch;
         }
+        sum -= '0' * n;
 
-        System.out.println(result);
+        bw.write(String.valueOf(sum));
 
+        br.close();
+        bw.close();
     }
 }
